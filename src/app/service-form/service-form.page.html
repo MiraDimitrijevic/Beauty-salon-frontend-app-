@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end" >
+      <ion-back-button defaultHref="/tabs/tab1" color="black" slot="end"> </ion-back-button>
+        </ion-buttons>
+    <ion-title class="ion-text-center">Service</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <form #serviceForm="ngForm" (ngSubmit)="saveService(serviceForm)">
+    <ion-list>
+      <ion-item>
+        <ion-input ngModel name="name" type="text" fill="solid" label="Service name:" color="black" required="true"
+         labelPlacement="floating" errorText="Invalid service name!" required #name="ngModel" [(ngModel)]="service.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input ngModel name="cost" type="number"  label="Total price:" color="black" required="true"
+         fill="solid" labelPlacement="floating" errorText="Invalid price!" required #price="ngModel" [(ngModel)]="service.cost">
+        </ion-input>
+      </ion-item>    
+        <ion-item>
+        <ion-input ngModel name="duration" type="number"  label="Duration:" color="black" required="true"
+         fill="solid" labelPlacement="floating" errorText="Invalid duration!" required #duration="ngModel" [(ngModel)]="service.duration">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea ngModel name="description"  label="Service description:" color="black"
+         labelPlacement="floating" #description="ngModel" [(ngModel)]="service.description"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit" shape="round" id="save-service-btn" expand="block" size="small" [disabled]="serviceForm.invalid">
+      <ion-icon name="create-outline" slot="start"></ion-icon>
+      Save changes
+    </ion-button>
+    </form>
+    <ion-button id="delete-service-button" type="submit" shape="round" 
+     expand="block" size="small" (click)="deleteService()">
+      <ion-icon name="trash-outline" slot="start"></ion-icon>
+      Delete service
+    </ion-button>
+    <ion-alert
+    trigger="delete-service-button"
+    header="Information"
+    subHeader="Important message"
+    message="Service deleted successfully!"
+    [buttons]="alertButtons"
+  ></ion-alert>
+</ion-content>

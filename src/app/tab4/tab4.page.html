@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Employees
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-row>
+    <ion-col size="12">
+  <ion-button  id="add-button"  (click)="create()">
+    ADD NEW
+  </ion-button>
+</ion-col>
+</ion-row>
+  <ion-list>
+    <app-employee-element *ngFor="let employee of employees" [employee]="employee">
+    </app-employee-element>
+  </ion-list>
+</ion-content>

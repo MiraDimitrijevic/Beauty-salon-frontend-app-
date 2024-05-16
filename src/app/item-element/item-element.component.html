@@ -1,0 +1,34 @@
+<ion-card>
+  <ion-card-content>
+    <ion-row>
+      <ion-col  size="6" text-center>
+    <ion-img [src]='item.employee_img' *ngIf="item.employee_img"></ion-img>
+  </ion-col>
+  <ion-col  size="6" text-center>
+    <ion-text>
+      {{item.employee_name}}
+  </ion-text>
+  </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6">
+      <ion-text class="plain">
+       {{item.service_name}}
+    </ion-text>
+   </ion-col>
+   <ion-col size="6">
+    <ion-text class="plain">
+  <b>{{item.service_cost}}</b> 
+  </ion-text>
+  </ion-col>
+   </ion-row>
+  <ion-row>
+    <ion-col size="6">
+      <ion-text class="plain"> 
+   {{item.start_time}}
+      </ion-text>
+   </ion-col>
+</ion-row>
+  </ion-card-content>
+  </ion-card>
+  

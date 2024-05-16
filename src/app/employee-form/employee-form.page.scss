@@ -1,0 +1,25 @@
+
+  ion-fab {
+    /* Position at the bottom and center of the screen */
+    position: fixed; /* Ensure it stays in place */
+    bottom: 453px; /* Position from the bottom of the screen */
+    right: 110px; /* Position from the right side */
+  }
+
+  .fab{
+    height: 70px;
+
+  }
+  
+
+  ion-label {
+    font-size: 16px; /* Set a specific font size */
+    font-weight: 600; /* Semi-bold for emphasis */
+    margin-bottom: 10px; /* Space below the label */
+    padding-left: 16px; /* Optional: indent for alignment */
+  }
+  ion-icon {
+    font-size: 24px; /* Size of the icon */
+    color: var(--ion-color-light); /* Icon color to match the FAB */
+  }
+  

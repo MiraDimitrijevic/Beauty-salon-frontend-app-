@@ -6,7 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
-  }
+  },
+  {
+    path: ':serviceId',
+    loadChildren: () => import('../offer/offer.module').then( m => m.OfferPageModule)
+  },
+  {
+    path: 'service/:serviceId',
+    loadChildren: () => import('../service-form/service-form.module').then( m => m.ServiceFormPageModule)
+  },
+
 ];
 
 @NgModule({

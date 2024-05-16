@@ -1,11 +1,42 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate:[AuthGuard]
+},
+{
+  path: 'login',
+  loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
+
+},
+{
+  path: 'register',
+  loadChildren: () => import('./auth/register/register.module').then( m => m.RegisterPageModule)
+},
+  {
+    path: 'offer',
+    loadChildren: () => import('./offer/offer.module').then( m => m.OfferPageModule)
+  },
+  {
+    path: 'service-form',
+    loadChildren: () => import('./service-form/service-form.module').then( m => m.ServiceFormPageModule)
+  },
+  {
+    path: 'employee-form',
+    loadChildren: () => import('./employee-form/employee-form.module').then( m => m.EmployeeFormPageModule)
+  },
+  {
+    path: 'offer-page',
+    loadChildren: () => import('./offer-page/offer-page.module').then( m => m.OfferPagePageModule)
+  },
+ /* {
+    path: 'times',
+    loadChildren: () => import('./tab3/tab3.module').then( m => m.Tab3PageModule)
+  }*/
 ];
 @NgModule({
   imports: [

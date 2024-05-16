@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">New employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form #employeeForm="ngForm" (ngSubmit)="newEmployee(employeeForm)">
+  <ion-list>
+    <ion-item>
+    
+      <ion-input ngModel name="name" type="text" fill="solid" minlength="5" label="Name" required="true" 
+      labelPlacement="floating"  required #name="ngModel" errorText="Invalid name, should be minimum 5 characters long.">
+  
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+    
+      <ion-input ngModel name="profession" type="text" fill="solid" label="Profession" required="true" 
+      labelPlacement="floating"  required #profession="ngModel">
+  
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+    
+      <ion-input ngModel name="email" type="email" fill="solid" label="Email" required="true" 
+      labelPlacement="floating"  minlength="5"  errorText="Invalid email format." required email #email="ngModel" >
+  
+      </ion-input>
+    </ion-item>
+    <ion-item>
+    
+      <ion-input ngModel name="password" type="password" label="Password" minlength="8"  
+       required="true" fill="solid" labelPlacement="floating"   helperText="Password must contain one digit, one lowercase letter, 
+       one uppercase letter and one special character, and it must be at least 8 characters long."
+       errorText="Invalid password, should be minimum 8 characters long." required #password="ngModel">
+      </ion-input>
+    </ion-item>  
+    <ion-item class="fab">
+    <ion-label>Insert employee's photo here</ion-label>
+  </ion-item>  
+  </ion-list>
+  <ion-fab slot="fixed">
+    <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-button type="submit"  shape="round" expand="block" size="small" [disabled]="employeeForm.invalid"
+  id="create-employee-btn">
+    Create
+  </ion-button>
+</form>
+  </ion-content>
